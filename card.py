@@ -4,7 +4,7 @@ class Card:
     def __init__(self):
         self._numbers = self._gen()
 
-    def _gen(self):
+    def _gen(self)-> list:
         numbers = []
         counts = [0]*9
         count_in_row = [0]*9
@@ -33,12 +33,25 @@ class Card:
                     numbers[i][j] = a[q]
                     q+=1
  
-        for i in range(3):
-            numbers[i] = ["  " if q==0 else str(q) if q>9 else "0"+str(q) for q in numbers[i] ]
+        #for i in range(3):
+        #    numbers[i] = ["  " if q==0 else str(q) if q>9 else "0"+str(q) for q in numbers[i] ]
 
         return numbers
 
     def show(self):
         for i in range(3):
-            print(" ".join(self._numbers[i]))      
+            for j in range(9):
+                if self._numbers[i][j]==0:
+                    print("  ", sep=" ", end=" ")
+                elif self._numbers[i][j]<10:
+                    print(f" {self._numbers[i][j]}", sep=" ", end=" ")
+                else:
+                    print(self._numbers[i][j], sep=" ", end=" ")
+            print()
 
+    def del_number(self, number):
+        for i in range(3):
+            if number in self._numbers[i]:
+                #self._numbers.remove(number)
+                return True
+        return False
