@@ -2,7 +2,9 @@ from random import randint
 
 class Card:
     def __init__(self):
-        self._numbers = self._gen()
+        self.numbers = self._gen()
+        #self._numbers = self._gen()
+        #self._select_numbers = [5, 4, 10, 22, 24, 43]
 
     def _gen(self)-> list:
         numbers = []
@@ -32,26 +34,21 @@ class Card:
                 if numbers[i][j]>0:
                     numbers[i][j] = a[q]
                     q+=1
- 
-        #for i in range(3):
-        #    numbers[i] = ["  " if q==0 else str(q) if q>9 else "0"+str(q) for q in numbers[i] ]
 
         return numbers
 
-    def show(self):
+    '''def show1(self):
         for i in range(3):
             for j in range(9):
-                if self._numbers[i][j]==0:
-                    print("  ", sep=" ", end=" ")
-                elif self._numbers[i][j]<10:
-                    print(f" {self._numbers[i][j]}", sep=" ", end=" ")
-                else:
-                    print(self._numbers[i][j], sep=" ", end=" ")
-            print()
+                print("**" if self._numbers[i][j] in self._select_numbers else "  " if self._numbers[i][j]==0 else " "*(2-len(str(self._numbers[i][j])))+str(self._numbers[i][j]), end="  ")
+            print()'''
 
-    def del_number(self, number):
-        for i in range(3):
-            if number in self._numbers[i]:
-                #self._numbers.remove(number)
-                return True
-        return False
+    '''def show(self):
+        for row in self._numbers:
+            for num in row:
+                print("**" if num in self._select_numbers else "  " if num==0 else " "*(2-len(str(num)))+str(num), end="  ")
+            print()'''
+
+    '''def add_select_number(self, number):
+        self._select_numbers.append(number)'''
+

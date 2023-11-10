@@ -1,5 +1,5 @@
-from card import Card
+from game import Game
 
-gamer = Card()
-gamer.show()
-print(gamer.del_number(5))
+cur_game = Game()
+#print(cur_game.meshok)
+cur_game.run()
