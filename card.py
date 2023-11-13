@@ -2,11 +2,14 @@ from random import randint
 
 class Card:
     def __init__(self):
+        # для быстрой проверки, можно зафиксировать карточки для обоих игроков
         self.numbers = self._gen()
-        #self._numbers = self._gen()
-        #self._select_numbers = [5, 4, 10, 22, 24, 43]
+        #self.numbers = [[0, 13, 0, 34, 43, 0, 62, 77, 0], [0, 0, 0, 35, 0, 54, 64, 78, 86], [4, 14, 28, 0, 44, 0, 0, 79, 0]]
 
     def _gen(self)-> list:
+        # подбор чисел для карточки. три ряда по 5 чисел, остальные 4 числа в ряду заполняются нулями
+        # в каждом столбце числа идут по возрастанию
+        # не самый удобный способ
         numbers = []
         counts = [0]*9
         count_in_row = [0]*9
@@ -36,19 +39,3 @@ class Card:
                     q+=1
 
         return numbers
-
-    '''def show1(self):
-        for i in range(3):
-            for j in range(9):
-                print("**" if self._numbers[i][j] in self._select_numbers else "  " if self._numbers[i][j]==0 else " "*(2-len(str(self._numbers[i][j])))+str(self._numbers[i][j]), end="  ")
-            print()'''
-
-    '''def show(self):
-        for row in self._numbers:
-            for num in row:
-                print("**" if num in self._select_numbers else "  " if num==0 else " "*(2-len(str(num)))+str(num), end="  ")
-            print()'''
-
-    '''def add_select_number(self, number):
-        self._select_numbers.append(number)'''
-
