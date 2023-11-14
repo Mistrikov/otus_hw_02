@@ -1,6 +1,5 @@
 from card import Card
 from player import Player
-from random import choice
 from meshok import Meshok
 
 class Game:
