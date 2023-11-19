@@ -1,6 +1,4 @@
 __pycache__
 .gitignore
-__pycache__/card.cpython-311.pyc
-__pycache__/card.cpython-311.pyc
 venv
 .pytest_cache
